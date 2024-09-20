@@ -3,18 +3,35 @@ import java.util.ArrayList;
 public class InsereFinalFilaPrioridade implements FilaPrioridade {
 
 	private ArrayList<Pair> fila;
+	private int index;
 
 	public InsereFinalFilaPrioridade(int capacidade) {
 		this.fila = new ArrayList<Pair>(capacidade);
+		this.index = -1;
 	}
 	
 	// criar um Pair e adicionar no fim da fila
-	public void add(String elemento, int prioridade) {}
+	public void add(String elemento, int prioridade) {
+		Pair novo = new Pair(elemento, prioridade);
+		index ++;
+		fila.add(index, novo);
+	}
 
 
 	// buscar pelo elemento de maior prioridade na fila.
 	public String removeNext() {
-		return "";
+		Pair maiorPrioridade = fila.get(0);
+		Integer iMaior = 0;
+		for(int i = 1; i <= index; i++) {
+			if(fila.get(i).getPrioridade() > maiorPrioridade.getPrioridade()) {
+				maiorPrioridade = fila.get(i).getPrioridade();
+				iMaior = i;
+			}
+		}
+		fila.remove(iMaior);
+		index--;
+
+		return maiorPrioridade.getElemento();
 	}
 
 }
