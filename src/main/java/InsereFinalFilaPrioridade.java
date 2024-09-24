@@ -21,14 +21,12 @@ public class InsereFinalFilaPrioridade implements FilaPrioridade {
 	// buscar pelo elemento de maior prioridade na fila.
 	public String removeNext() {
 		Pair maiorPrioridade = fila.get(0);
-		Integer iMaior = 0;
 		for(int i = 1; i <= index; i++) {
 			if(fila.get(i).getPrioridade() > maiorPrioridade.getPrioridade()) {
-				maiorPrioridade = fila.get(i).getPrioridade();
-				iMaior = i;
+				maiorPrioridade = fila.get(i);
 			}
 		}
-		fila.remove(iMaior);
+		fila.remove(maiorPrioridade);
 		index--;
 
 		return maiorPrioridade.getElemento();

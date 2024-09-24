@@ -11,8 +11,8 @@ public class RoteiroTest {
 		FilaPrioridade insertion = new InsereOrdenadoFilaPrioridade(5);
 		FilaPrioridade[] estrategias = new FilaPrioridade[3];
 		estrategias[0] = heap;
-		estrategias[1] = insereFinal;
-		estrategias[2] = insertion;
+		estrategias[2] = insereFinal;
+		estrategias[1] = insertion;
 
 
 		// 1, 2, 3, 4, 5
